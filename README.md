@@ -1,4 +1,4 @@
-# 🧱 sted – The Scratch Tilemap Editor
+# 🧱 sted – A Scratch Tilemap Editor
 
 **sted** is a simple Excel-based tilemap editor that helps you design grid-based layouts for Scratch games. Visually build your levels and export clean coordinate data for dynamic tile-based rendering in Scratch.
 
@@ -66,9 +66,22 @@ Run the `Export` macro:
 1. Open your Scratch project.
 2. Load the contents of `tilemap.txt` into a list variable in Scratch (e.g., `TilePositions`).
 3. Each pair of values (`x`, then `y`) represents one tile’s position.
-4. In your startup script (e.g., when the green flag is clicked), loop through the list and `create clone of [tile]` at each coordinate.
 
-**Note:** Each coordinate represents the **center** of a tile placed on a 24-step grid. Make sure your tile sprite is centered and sized to fit a 24×24-step area for proper alignment.
+You can use one of two methods to draw the tiles:
+
+#### 🧱 Option 1: Using Clones _(Recommended for interactive tiles)_
+
+- In your startup script (e.g., when the green flag is clicked), loop through the list and `create clone of [tile]` at each coordinate.
+- Use the `when I start as a clone` block to position and show the clone.
+- This approach allows each tile to act independently (e.g., collisions, animation).
+
+#### 🖊️ Option 2: Using Pen Stamp _(For static backgrounds)_
+
+- Loop through the list and move the tile sprite to each `(x, y)` coordinate.
+- Use the `stamp` block to draw it on the stage.
+- Ideal for large, unchanging maps where performance is a concern.
+
+> 🧩 **Note:** Each coordinate represents the **center** of a tile placed on a 24-step grid. Ensure your tile sprite is centered and sized to fit a 24×24-step area for proper alignment.
 
 ---
 
